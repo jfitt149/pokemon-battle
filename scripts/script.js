@@ -78,18 +78,24 @@ battleForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const resultElement = document.querySelector(".result");
   const winnerElement = document.querySelector(".result__winner");
+  const playerOne = event.target.playerOne.value;
+  const playerTwo = event.target.playerTwo.value;
+  const playerOnePokemon = event.target.playerOnePokemon.value;
+  const playerTwoPokemon = event.target.playerTwoPokemon.value;
+
+  console.log(playerOnePokemon);
+  console.log(playerTwoPokemon);
+
   const playerOneScore = 20;
   const playerTwoScore = 12;
-  const pokemonOne = event.target.pokemonOne.value;
-  const pokemonTwo = event.target.pokemonTwo.value;
 
   if (playerOneScore > playerTwoScore) {
     winnerElement.textContent = `🏅 ${
-      pokemonOne.charAt(0).toUpperCase() + pokemonOne.slice(1)
+      playerOne.charAt(0).toUpperCase() + playerOne.slice(1)
     } 🏅`;
   } else if (playerOneScore < playerTwoScore) {
     winnerElement.textContent = `🏅 ${
-      pokemonTwo.charAt(0).toUpperCase() + pokemonTwo.slice(1)
+      playerTwo.charAt(0).toUpperCase() + playerTwo.slice(1)
     } 🏅`;
   } else {
     winnerElement.textContent = `Oops! It's a tie.`;
@@ -97,4 +103,98 @@ battleForm.addEventListener("submit", (event) => {
 
   resultElement.classList.remove("result--hide");
   resultElement.classList.add("result--show");
+
+  battleForm.reset();
 });
+
+//JUSTIN's CODE:
+const playerOnePokemon = document.getElementById("playerOnePokemon");
+const playerTwoPokemon = document.getElementById("playerTwoPokemon");
+
+const choicesContOne = document.createElement("div");
+choicesContOne.classList.add("choices-container");
+const choicesContTwo = document.createElement("div");
+choicesContTwo.classList.add("choices-container");
+
+const populateFormOneRadio = (pokemonObj) => {
+  let label = document.createElement("label");
+
+  const inputRadio = document.createElement("input");
+
+  const statsObj = {
+    hp: pokemonObj.stats[0].base_stat,
+    attack: pokemonObj.stats[1].base_stat,
+    defense: pokemonObj.stats[2].base_stat,
+    speed: pokemonObj.stats[5].base_stat,
+  };
+
+  inputRadio.type = "radio";
+  inputRadio.value = JSON.stringify(statsObj);
+  inputRadio.id = pokemonObj.id;
+  inputRadio.name = "playerOnePokemon";
+
+  const name = document.createElement("h3");
+  name.textContent = pokemonObj.name;
+
+  let labelImg = document.createElement("img");
+  labelImg.src = pokemonObj.sprites.front_default;
+
+  label.appendChild(inputRadio);
+  label.appendChild(labelImg);
+  label.appendChild(name);
+  choicesContOne.appendChild(label);
+};
+
+const populateFormTwoRadio = (pokemonObj) => {
+  let label = document.createElement("label");
+
+  const inputRadio = document.createElement("input");
+
+  const statsObj = {
+    hp: pokemonObj.stats[0].base_stat,
+    attack: pokemonObj.stats[1].base_stat,
+    defense: pokemonObj.stats[2].base_stat,
+    speed: pokemonObj.stats[5].base_stat,
+  };
+
+  inputRadio.type = "radio";
+  inputRadio.value = JSON.stringify(statsObj);
+  inputRadio.id = pokemonObj.id;
+  inputRadio.name = "playerTwoPokemon";
+
+  const name = document.createElement("h3");
+  name.textContent = pokemonObj.name;
+
+  let labelImg = document.createElement("img");
+  labelImg.src = pokemonObj.sprites.front_default;
+
+  label.appendChild(inputRadio);
+  label.appendChild(labelImg);
+  label.appendChild(name);
+  choicesContTwo.appendChild(label);
+};
+
+playerOnePokemon.appendChild(choicesContOne);
+playerTwoPokemon.appendChild(choicesContTwo);
+
+const getPokemon = async () => {
+  try {
+    let numChoices = 10;
+    let results = [];
+    for (let i = 0; i < numChoices; i++) {
+      // can use a promise
+      results[i] = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${
+          Math.floor(Math.random() * 200) + 1
+        }`
+      );
+
+      populateFormOneRadio(results[i].data);
+      populateFormTwoRadio(results[i].data);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+getPokemon();

@@ -27,7 +27,7 @@ h3 {
 }
 
 img {
-  width: 30px;
+  width: 100px;
   height: auto;
 }
 
@@ -82,7 +82,7 @@ img {
   font-weight: 600;
   border: none;
   cursor: pointer;
-  margin: auto;
+  margin: 2rem auto;
 }
 
 .card {
@@ -130,11 +130,12 @@ img {
 }
 .pokemon-battle__players {
   display: flex;
-  justify-content: space-around;
 }
 
 .player {
   text-align: center;
+  flex: 1;
+  padding: 1rem 0.5rem;
 }
 .player__title {
   padding-bottom: 1rem;
@@ -172,4 +173,11 @@ img {
   flex-wrap: wrap;
   gap: 2rem;
   margin: 2rem 8rem;
+}
+
+.choices-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  gap: 13px;
 }/*# sourceMappingURL=styles.css.map */

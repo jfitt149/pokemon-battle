@@ -45,25 +45,27 @@
         </h1>
         <form class="pokemon-battle__form" id="pokemonBattleForm">
           <div class="pokemon-battle__players">
-            <article class="player">
+            <article class="player player--one">
               <h2 class="player__title">Player 1</h2>
               <input
                 class="player__input"
                 type="text"
-                name="pokemonOne"
+                name="playerOne"
                 placeholder="Enter your Pokemon name"
                 required
               />
+              <div class="player__pokemon" id="playerOnePokemon"></div>
             </article>
-            <article class="pokemon-battle__player">
+            <article class="player player--two">
               <h2 class="player__title">Player 2</h2>
               <input
                 class="player__input"
                 type="text"
-                name="pokemonTwo"
+                name="playerTwo"
                 placeholder="Enter your Pokemon name"
                 required
               />
+              <div class="player__pokemon" id="playerTwoPokemon"></div>
             </article>
           </div>
           <button class="button" type="submit">Let's Battle</button>
