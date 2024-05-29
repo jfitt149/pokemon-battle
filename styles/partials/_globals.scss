@@ -1,0 +1,140 @@
+@use "./variables" as *;
+@use "./typography" as *;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $default-font;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+img {
+  width: 6.25rem;
+  height: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 0.625rem 1.25rem;
+  color: $default-color;
+
+  &__logo-link {
+    display: flex;
+    gap: 0.625rem;
+    align-items: center;
+    color: $default-color;
+    text-decoration: none;
+  }
+
+  &__image {
+    width: 3.125rem;
+    height: auto;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-family: $special-font;
+  }
+}
+
+.navigation {
+  &__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  &__item {
+    margin-left: 1.25rem;
+  }
+
+  &__item-link {
+    color: $default-color;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+.button {
+  height: 2.5rem;
+  width: 9.375rem;
+  min-width: 9.375rem;
+  background-color: $primary-color;
+  color: $default-color;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  border-radius: 4px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin: 2rem auto;
+
+  &--align {
+    align-self: center;
+  }
+}
+
+.card {
+  width: 16rem;
+  border-radius: 0.32rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  background-color: $default-color;
+
+  &__image-wrapper {
+    width: 9.375rem;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__image-wrapper {
+    margin: auto;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: $secondary-color;
+  padding: 0.625rem 1.25rem;
+  color: $default-color;
+
+  &__info {
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
+
+.error {
+  color: $primary-color;
+  &--hide {
+    display: none;
+  }
+}

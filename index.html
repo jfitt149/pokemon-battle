@@ -5,7 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <script src="./scripts/script.js" defer></script>
-    <title>Pokemon Battle</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>PokeWorld</title>
   </head>
-  <body></body>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div class="header__logo">
+          <a class="header__logo-link" href="./index.html">
+            <img
+              class="header__image"
+              src="./assets/icons/poke-ball.svg"
+              alt="Logo"
+            />
+            <h3 class="header__title">PokeWorld</h3>
+          </a>
+        </div>
+        <nav class="navigation">
+          <ul class="navigation__items">
+            <li class="navigation__item">
+              <a
+                class="navigation__item-link navigation__item-link--active"
+                href="#pokemonBattle"
+                >Battle</a
+              >
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__item-link" href="#pokemonList"
+                >Pokemon List</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <section class="pokemon-battle" id="pokemonBattle">
+        <h1 class="pokemon-battle__title">
+          Select a Pokemon of your choice to battle!
+        </h1>
+        <article class="result result--hide">
+          <h3 class="result__title">And the winner is</h3>
+          <p class="result__winner"></p>
+        </article>
+        <p class="error error--hide">Please select a pokemon.</p>
+        <form class="pokemon-battle__form" id="pokemonBattleForm">
+          <div class="pokemon-battle__players">
+            <article class="player player--one">
+              <h2 class="player__title">Player 1</h2>
+              <input
+                class="player__input"
+                type="text"
+                name="playerOne"
+                placeholder="Enter your name"
+                required
+              />
+              <div class="player__pokemon" id="playerOnePokemon"></div>
+            </article>
+            <button class="button button--align" type="submit">
+              Let's Battle
+            </button>
+            <article class="player player--two">
+              <h2 class="player__title">Player 2</h2>
+              <input
+                class="player__input"
+                type="text"
+                name="playerTwo"
+                placeholder="Enter your name"
+                required
+              />
+              <div class="player__pokemon" id="playerTwoPokemon"></div>
+            </article>
+          </div>
+        </form>
+      </section>
+
+      <section class="section pokemons">
+        <h1 class="pokemon-battle__title">List of all Pokemon</h1>
+        <section class="pokemon-list" id="pokemonList"></section>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__info">Have fun, folks!</p>
+    </footer>
+  </body>
 </html>

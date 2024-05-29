@@ -1,0 +1,107 @@
+@use "./partials/variables" as *;
+@use "./partials/globals" as *;
+@use "./partials/typography" as *;
+
+.pokemon-battle {
+  text-align: center;
+  padding: 1rem;
+
+  &__title {
+    padding: 1rem 2.5rem;
+  }
+
+  &__form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__players {
+    display: flex;
+  }
+}
+
+.player {
+  text-align: center;
+  padding: 1rem 0.5rem;
+
+  &__title {
+    padding-bottom: 1rem;
+  }
+
+  &__input {
+    border: 1px solid $neutral-color;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+  }
+}
+
+.result {
+  padding: 1rem;
+  text-align: center;
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  &__winner {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  &--hide {
+    display: none;
+  }
+
+  &--show {
+    display: block;
+  }
+}
+
+.pokemons {
+  background-color: $neutral-color;
+  padding: 2rem 0;
+}
+
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 8rem;
+}
+
+.choices-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  gap: 0.8125rem;
+  justify-content: center;
+}
+
+.pokemon {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+
+  &__radio {
+    display: none;
+  }
+
+  &__image {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+  }
+
+  &__radio:checked + &__image {
+    border-color: $secondary-color;
+  }
+
+  &__name {
+    font-size: 14px;
+  }
+}
