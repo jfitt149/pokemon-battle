@@ -77,11 +77,23 @@ const battleForm = document.getElementById("pokemonBattleForm");
 battleForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const resultElement = document.querySelector(".result");
+  const resultTitleElement = document.querySelector(".result__title");
   const winnerElement = document.querySelector(".result__winner");
   const playerOne = event.target.playerOne.value;
   const playerTwo = event.target.playerTwo.value;
   const playerOnePokemon = event.target.playerOnePokemon.value;
   const playerTwoPokemon = event.target.playerTwoPokemon.value;
+  const errorEl = document.querySelector(".error");
+
+  if (
+    playerOne.length === 0 ||
+    playerTwo.length === 0 ||
+    playerOnePokemon.length === 0 ||
+    playerTwoPokemon.length === 0
+  ) {
+    errorEl.classList.remove("error--hide");
+    return;
+  }
 
   let p1Stats = JSON.parse(playerOnePokemon);
   let p2Stats = JSON.parse(playerTwoPokemon);
@@ -120,24 +132,31 @@ battleForm.addEventListener("submit", (event) => {
     i++;
   }
 
+  console.log(p1Stats);
   const playerOneScore = p1Stats.hp;
   const playerTwoScore = p2Stats.hp;
 
   if (playerOneScore > playerTwoScore) {
-    winnerElement.textContent = `🏅 ${
+    winnerElement.textContent = `🏆 ${
       playerOne.charAt(0).toUpperCase() + playerOne.slice(1)
-    } 🏅`;
+    } - ${p1Stats.name.charAt(0).toUpperCase() + p1Stats.name.slice(1)} 🏆`;
   } else if (playerOneScore < playerTwoScore) {
-    winnerElement.textContent = `🏅 ${
+    winnerElement.textContent = `🏆 ${
       playerTwo.charAt(0).toUpperCase() + playerTwo.slice(1)
-    } 🏅`;
+    } - ${p2Stats.name.charAt(0).toUpperCase() + p2Stats.name.slice(1)} 🏆`;
   } else {
-    winnerElement.textContent = `Oops! It's a tie.`;
+    resultTitleElement.classList.add("result--hide");
+    winnerElement.textContent = `Oops! It's a Tie.`;
   }
 
+  errorEl.classList.add("error--hide");
   resultElement.classList.remove("result--hide");
   resultElement.classList.add("result--show");
-
+  window.scrollTo({
+    top: 100,
+    left: 100,
+    behavior: "smooth",
+  });
   battleForm.reset();
 });
 
@@ -156,6 +175,7 @@ const populateFormOneRadio = (pokemonObj) => {
   const inputRadio = document.createElement("input");
 
   const statsObj = {
+    name: pokemonObj.name,
     hp: pokemonObj.stats[0].base_stat,
     attack: pokemonObj.stats[1].base_stat,
     defense: pokemonObj.stats[2].base_stat,
@@ -193,6 +213,7 @@ const populateFormTwoRadio = (pokemonObj) => {
   const inputRadio = document.createElement("input");
 
   const statsObj = {
+    name: pokemonObj.name,
     hp: pokemonObj.stats[0].base_stat,
     attack: pokemonObj.stats[1].base_stat,
     defense: pokemonObj.stats[2].base_stat,
