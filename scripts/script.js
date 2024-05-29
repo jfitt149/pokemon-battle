@@ -86,8 +86,45 @@ battleForm.addEventListener("submit", (event) => {
   console.log(playerOnePokemon);
   console.log(playerTwoPokemon);
 
-  const playerOneScore = 20;
-  const playerTwoScore = 12;
+  let p1Stats = JSON.parse(playerOnePokemon);
+  let p2Stats = JSON.parse(playerTwoPokemon);
+
+  let i = 0;
+  while (p1Stats.hp > 0 && p2Stats.hp > 0) {
+    if (i > 1000) {
+      console.log("tie");
+      p1Stats.hp = p2Stats.hp;
+      break;
+    } else {
+      if (p1Stats.speed > p2Stats.speed) {
+        hpLost = p2Stats.defense - p1Stats.attack;
+        if (hpLost < 0) {
+          p2Stats.hp = p2Stats.hp + hpLost;
+        }
+        if (p1Stats.speed > 0) {
+          p1Stats.speed = p1Stats.speed - 30;
+        }
+      } else if (p1Stats.speed < p2Stats.speed) {
+        hpLost = p1Stats.defense - p2Stats.attack;
+        if (hpLost < 0) {
+          p1Stats.hp = p1Stats.hp + hpLost;
+        }
+        if (p2Stats.speed > 0) {
+          p2Stats.speed = p2Stats.speed - 30;
+        }
+      } else {
+        console.log("tie");
+        p1Stats.hp = p2Stats.hp;
+        break;
+      }
+    }
+    console.log(p1Stats);
+    console.log(p2Stats);
+    i++;
+  }
+
+  const playerOneScore = p1Stats.hp;
+  const playerTwoScore = p2Stats.hp;
 
   if (playerOneScore > playerTwoScore) {
     winnerElement.textContent = `🏅 ${
@@ -107,7 +144,6 @@ battleForm.addEventListener("submit", (event) => {
   battleForm.reset();
 });
 
-//JUSTIN's CODE:
 const playerOnePokemon = document.getElementById("playerOnePokemon");
 const playerTwoPokemon = document.getElementById("playerTwoPokemon");
 
@@ -143,8 +179,13 @@ const populateFormOneRadio = (pokemonObj) => {
   imgEL.src = pokemonObj.sprites.front_default;
   imgEL.alt = pokemonObj.name;
 
+  const paraEL = document.createElement("p");
+  paraEL.classList.add("pokemon__name");
+  paraEL.textContent = pokemonObj.name;
+
   labelEl.appendChild(inputRadio);
   labelEl.appendChild(imgEL);
+  labelEl.appendChild(paraEL);
   choicesContOne.appendChild(labelEl);
 };
 
@@ -175,8 +216,14 @@ const populateFormTwoRadio = (pokemonObj) => {
   imgEL.src = pokemonObj.sprites.front_default;
   imgEL.alt = pokemonObj.name;
 
+  const paraEL = document.createElement("p");
+  paraEL.classList.add("pokemon__name");
+  paraEL.textContent = pokemonObj.name;
+
   labelEl.appendChild(inputRadio);
   labelEl.appendChild(imgEL);
+  labelEl.appendChild(paraEL);
+
   choicesContTwo.appendChild(labelEl);
 };
 

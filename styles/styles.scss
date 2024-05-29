@@ -100,4 +100,8 @@
   &__radio:checked + &__image {
     border-color: $secondary-color;
   }
+
+  &__name {
+    font-size: 14px;
+  }
 }

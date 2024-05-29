@@ -207,4 +207,7 @@ img {
 }
 .pokemon__radio:checked + .pokemon__image {
   border-color: #333;
+}
+.pokemon__name {
+  font-size: 14px;
 }/*# sourceMappingURL=styles.css.map */
