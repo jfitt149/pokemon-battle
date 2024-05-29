@@ -5,7 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <script src="./scripts/script.js" defer></script>
-    <title>Pokemon Battle</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>PokeWorld</title>
   </head>
-  <body></body>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div class="logo">
+          <img
+            class="logo__image"
+            src="./assets/icons/poke-ball.svg"
+            alt="Logo"
+          />
+          <h3 class="logo__title">PokeWorld</h3>
+        </div>
+        <nav class="navigation">
+          <ul class="navigation__items">
+            <li class="navigation__item"><a href="index.html">Battle</a></li>
+            <li class="navigation__item">
+              <a href="#pokemons">Pokemon List</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <section class="pokemon-battle">
+        <h1 class="battle-title">Select a Pokemon of your choice to battle!</h1>
+        <form class="pokemon-form" id="pokemonBattleForm">
+          <div class="pokemon__players">
+            <article class="pokemon-form-wrapper">
+              <h2 class="pokemon__player">Player 1</h2>
+              <input
+                type="text"
+                name="pokemonOne"
+                placeholder="Enter your Pokemon name"
+                required
+              />
+            </article>
+            <article class="pokemon-form-wrapper">
+              <h2 class="pokemon__player">Player 2</h2>
+              <input
+                class="pokemon__player"
+                type="text"
+                name="pokemonTwo"
+                placeholder="Enter your Pokemon name"
+                required
+              />
+            </article>
+          </div>
+          <button type="submit">Let's Battle</button>
+        </form>
+        <article class="result hide">
+          <h3>Result:</h3>
+          <p class="winner"></p>
+        </article>
+      </section>
+
+      <!-- LIST -->
+      <section class="section pokemons" id="pokemons"></section>
+    </main>
+    <footer class="footer">
+      <p class="footer__info">Have fun, folks!</p>
+    </footer>
+  </body>
 </html>
