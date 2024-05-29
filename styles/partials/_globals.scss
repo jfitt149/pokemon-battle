@@ -20,13 +20,13 @@ h2 {
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 400;
   margin: 0;
 }
 
 img {
-  width: 100px;
+  width: 6.25rem;
   height: auto;
 }
 
@@ -35,24 +35,24 @@ img {
   justify-content: space-between;
   align-items: center;
   background-color: #333;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   color: $default-color;
 
   &__logo-link {
     display: flex;
-    gap: 10px;
+    gap: 0.625rem;
     align-items: center;
     color: $default-color;
     text-decoration: none;
   }
 
   &__image {
-    width: 50px;
+    width: 3.125rem;
     height: auto;
   }
 
   &__title {
-    font-size: 16px;
+    font-size: 1rem;
     font-family: $special-font;
   }
 }
@@ -66,21 +66,21 @@ img {
   }
 
   &__item {
-    margin-left: 20px;
+    margin-left: 1.25rem;
   }
 
   &__item-link {
     color: $default-color;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1rem;
     padding: 1rem;
   }
 }
 
 .button {
   height: 2.5rem;
-  width: 150px;
-  min-width: 150px;
+  width: 9.375rem;
+  min-width: 9.375rem;
   background-color: $primary-color;
   color: $default-color;
   font-size: 0.8125rem;
@@ -105,7 +105,7 @@ img {
   background-color: $default-color;
 
   &__image-wrapper {
-    width: 150px;
+    width: 9.375rem;
   }
 
   &__image {
@@ -121,7 +121,7 @@ img {
   display: flex;
   justify-content: center;
   background-color: $secondary-color;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   color: $default-color;
 
   &__info {
