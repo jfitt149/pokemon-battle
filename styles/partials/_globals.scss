@@ -5,7 +5,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: $default-font;
 }
 
 h1 {
@@ -80,6 +80,7 @@ img {
 .button {
   height: 2.5rem;
   width: 150px;
+  min-width: 150px;
   background-color: $primary-color;
   color: $default-color;
   font-size: 0.8125rem;
@@ -89,6 +90,10 @@ img {
   border: none;
   cursor: pointer;
   margin: 2rem auto;
+
+  &--align {
+    align-self: center;
+  }
 }
 
 .card {
@@ -97,6 +102,7 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
   padding: 1rem;
+  background-color: $default-color;
 
   &__image-wrapper {
     width: 150px;

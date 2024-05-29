@@ -117,7 +117,8 @@ const choicesContTwo = document.createElement("div");
 choicesContTwo.classList.add("choices-container");
 
 const populateFormOneRadio = (pokemonObj) => {
-  let label = document.createElement("label");
+  const labelEl = document.createElement("label");
+  labelEl.classList.add("pokemon");
 
   const inputRadio = document.createElement("input");
 
@@ -129,24 +130,27 @@ const populateFormOneRadio = (pokemonObj) => {
   };
 
   inputRadio.type = "radio";
-  inputRadio.value = JSON.stringify(statsObj);
   inputRadio.id = pokemonObj.id;
   inputRadio.name = "playerOnePokemon";
+  inputRadio.value = JSON.stringify(statsObj);
+  inputRadio.classList.add("pokemon__radio");
 
   const name = document.createElement("h3");
   name.textContent = pokemonObj.name;
 
-  let labelImg = document.createElement("img");
-  labelImg.src = pokemonObj.sprites.front_default;
+  const imgEL = document.createElement("img");
+  imgEL.classList.add("pokemon__image");
+  imgEL.src = pokemonObj.sprites.front_default;
+  imgEL.alt = pokemonObj.name;
 
-  label.appendChild(inputRadio);
-  label.appendChild(labelImg);
-  label.appendChild(name);
-  choicesContOne.appendChild(label);
+  labelEl.appendChild(inputRadio);
+  labelEl.appendChild(imgEL);
+  choicesContOne.appendChild(labelEl);
 };
 
 const populateFormTwoRadio = (pokemonObj) => {
-  let label = document.createElement("label");
+  const labelEl = document.createElement("label");
+  labelEl.classList.add("pokemon-wrapper");
 
   const inputRadio = document.createElement("input");
 
@@ -158,20 +162,22 @@ const populateFormTwoRadio = (pokemonObj) => {
   };
 
   inputRadio.type = "radio";
-  inputRadio.value = JSON.stringify(statsObj);
   inputRadio.id = pokemonObj.id;
   inputRadio.name = "playerTwoPokemon";
+  inputRadio.value = JSON.stringify(statsObj);
+  inputRadio.classList.add("pokemon__radio");
 
   const name = document.createElement("h3");
   name.textContent = pokemonObj.name;
 
-  let labelImg = document.createElement("img");
-  labelImg.src = pokemonObj.sprites.front_default;
+  const imgEL = document.createElement("img");
+  imgEL.classList.add("pokemon__image");
+  imgEL.src = pokemonObj.sprites.front_default;
+  imgEL.alt = pokemonObj.name;
 
-  label.appendChild(inputRadio);
-  label.appendChild(labelImg);
-  label.appendChild(name);
-  choicesContTwo.appendChild(label);
+  labelEl.appendChild(inputRadio);
+  labelEl.appendChild(imgEL);
+  choicesContTwo.appendChild(labelEl);
 };
 
 playerOnePokemon.appendChild(choicesContOne);
