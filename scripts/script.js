@@ -35,7 +35,7 @@ async function getAllPokemons() {
 }
 
 function displayPokemon(pokeObj) {
-  const pokemonList = document.querySelector(".pokemons");
+  const pokemonList = document.querySelector(".pokemon-list");
 
   const cardElement = document.createElement("article");
   cardElement.classList.add("card");
@@ -77,52 +77,24 @@ const battleForm = document.getElementById("pokemonBattleForm");
 battleForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const resultElement = document.querySelector(".result");
-  const winnerPara = document.querySelector(".winner");
+  const winnerElement = document.querySelector(".result__winner");
   const playerOneScore = 20;
   const playerTwoScore = 12;
-  //make value lower case
+  const pokemonOne = event.target.pokemonOne.value;
+  const pokemonTwo = event.target.pokemonTwo.value;
 
   if (playerOneScore > playerTwoScore) {
-    winnerPara.textContent = `${event.target.pokemonOne.value} is the winner.`;
-    //highlight bulbasaur container with border
+    winnerElement.textContent = `🏅 ${
+      pokemonOne.charAt(0).toUpperCase() + pokemonOne.slice(1)
+    } 🏅`;
   } else if (playerOneScore < playerTwoScore) {
-    winnerPara.textContent = `${event.target.pokemonTwo.value} is the winner.`;
-    //highlight pikachu container with border
+    winnerElement.textContent = `🏅 ${
+      pokemonTwo.charAt(0).toUpperCase() + pokemonTwo.slice(1)
+    } 🏅`;
   } else {
-    winnerPara.textContent = `Oops! It's a tie.`;
+    winnerElement.textContent = `Oops! It's a tie.`;
   }
 
-  resultElement.classList.remove("hide");
-  resultElement.classList.add("show");
+  resultElement.classList.remove("result--hide");
+  resultElement.classList.add("result--show");
 });
-
-// function populatePokeImages() {
-//   const pokemonImagesContainer = document.querySelector(".poke-images");
-
-//   const divElement = document.createElement("div");
-//   divElement.classList.add("image-option");
-
-//   const inputElement = document.createElement("input");
-//   inputElement.classList.add("radio");
-//   inputElement.type = "radio";
-//   inputElement.name = "playerOnePokemon";
-//   inputElement.value = "pikachu";
-//   inputElement.id = "pikachu1";
-
-//   const labelElement = document.createElement("label");
-//   labelElement.setAttribute("for", "pikachu");
-
-//   const imgElement = document.createElement("img");
-//   imgElement.src = "./assets/images/pikachu.png";
-//   imgElement.alt = "pikachu";
-//   imgElement.classList.add("radio-image");
-
-//   labelElement.appendChild(imgElement);
-
-//   divElement.appendChild(inputElement);
-//   divElement.appendChild(labelElement);
-
-//   pokemonImagesContainer.appendChild(divElement);
-// }
-
-// populatePokeImages();

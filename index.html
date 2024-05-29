@@ -11,41 +11,54 @@
   <body>
     <main class="container">
       <header class="header">
-        <div class="logo">
-          <img
-            class="logo__image"
-            src="./assets/icons/poke-ball.svg"
-            alt="Logo"
-          />
-          <h3 class="logo__title">PokeWorld</h3>
+        <div class="header__logo">
+          <a class="header__logo-link" href="./index.html">
+            <img
+              class="header__image"
+              src="./assets/icons/poke-ball.svg"
+              alt="Logo"
+            />
+            <h3 class="header__title">PokeWorld</h3>
+          </a>
         </div>
         <nav class="navigation">
           <ul class="navigation__items">
-            <li class="navigation__item"><a href="index.html">Battle</a></li>
             <li class="navigation__item">
-              <a href="#pokemons">Pokemon List</a>
+              <a
+                class="navigation__item-link navigation__item-link--active"
+                href="#pokemonBattle"
+                >Battle</a
+              >
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__item-link" href="#pokemonList"
+                >Pokemon List</a
+              >
             </li>
           </ul>
         </nav>
       </header>
 
-      <section class="pokemon-battle">
-        <h1 class="battle-title">Select a Pokemon of your choice to battle!</h1>
-        <form class="pokemon-form" id="pokemonBattleForm">
-          <div class="pokemon__players">
-            <article class="pokemon-form-wrapper">
-              <h2 class="pokemon__player">Player 1</h2>
+      <section class="pokemon-battle" id="pokemonBattle">
+        <h1 class="pokemon-battle__title">
+          Select a Pokemon of your choice to battle!
+        </h1>
+        <form class="pokemon-battle__form" id="pokemonBattleForm">
+          <div class="pokemon-battle__players">
+            <article class="player">
+              <h2 class="player__title">Player 1</h2>
               <input
+                class="player__input"
                 type="text"
                 name="pokemonOne"
                 placeholder="Enter your Pokemon name"
                 required
               />
             </article>
-            <article class="pokemon-form-wrapper">
-              <h2 class="pokemon__player">Player 2</h2>
+            <article class="pokemon-battle__player">
+              <h2 class="player__title">Player 2</h2>
               <input
-                class="pokemon__player"
+                class="player__input"
                 type="text"
                 name="pokemonTwo"
                 placeholder="Enter your Pokemon name"
@@ -53,16 +66,16 @@
               />
             </article>
           </div>
-          <button type="submit">Let's Battle</button>
+          <button class="button" type="submit">Let's Battle</button>
         </form>
-        <article class="result hide">
-          <h3>Result:</h3>
-          <p class="winner"></p>
+
+        <article class="result result--hide">
+          <h3 class="result__title">And the winner is</h3>
+          <p class="result__winner"></p>
         </article>
       </section>
 
-      <!-- LIST -->
-      <section class="section pokemons" id="pokemons"></section>
+      <section class="section pokemon-list" id="pokemonList"></section>
     </main>
     <footer class="footer">
       <p class="footer__info">Have fun, folks!</p>

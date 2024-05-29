@@ -1,0 +1,127 @@
+@use "./variables" as *;
+@use "./typography" as *;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+}
+
+img {
+  width: 30px;
+  height: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: $default-color;
+
+  &__logo-link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: $default-color;
+    text-decoration: none;
+  }
+
+  &__image {
+    width: 50px;
+    height: auto;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-family: $special-font;
+  }
+}
+
+.navigation {
+  &__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  &__item {
+    margin-left: 20px;
+  }
+
+  &__item-link {
+    color: $default-color;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 1rem;
+  }
+}
+
+.button {
+  height: 2.5rem;
+  width: 150px;
+  background-color: $primary-color;
+  color: $default-color;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  border-radius: 4px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin: auto;
+}
+
+.card {
+  width: 16rem;
+  border-radius: 0.32rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+
+  &__image-wrapper {
+    width: 150px;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__image-wrapper {
+    margin: auto;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: $secondary-color;
+  padding: 10px 20px;
+  color: $default-color;
+
+  &__info {
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
