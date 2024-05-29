@@ -83,9 +83,6 @@ battleForm.addEventListener("submit", (event) => {
   const playerOnePokemon = event.target.playerOnePokemon.value;
   const playerTwoPokemon = event.target.playerTwoPokemon.value;
 
-  console.log(playerOnePokemon);
-  console.log(playerTwoPokemon);
-
   let p1Stats = JSON.parse(playerOnePokemon);
   let p2Stats = JSON.parse(playerTwoPokemon);
 
@@ -167,7 +164,7 @@ const populateFormOneRadio = (pokemonObj) => {
 
   inputRadio.type = "radio";
   inputRadio.id = pokemonObj.id;
-  inputRadio.name = "playerOnePokemon";
+  inputRadio.name = "playerOnePokemon"; //This
   inputRadio.value = JSON.stringify(statsObj);
   inputRadio.classList.add("pokemon__radio");
 
@@ -186,7 +183,7 @@ const populateFormOneRadio = (pokemonObj) => {
   labelEl.appendChild(inputRadio);
   labelEl.appendChild(imgEL);
   labelEl.appendChild(paraEL);
-  choicesContOne.appendChild(labelEl);
+  choicesContOne.appendChild(labelEl); //This
 };
 
 const populateFormTwoRadio = (pokemonObj) => {
@@ -204,7 +201,7 @@ const populateFormTwoRadio = (pokemonObj) => {
 
   inputRadio.type = "radio";
   inputRadio.id = pokemonObj.id;
-  inputRadio.name = "playerTwoPokemon";
+  inputRadio.name = "playerTwoPokemon"; //That
   inputRadio.value = JSON.stringify(statsObj);
   inputRadio.classList.add("pokemon__radio");
 
@@ -224,7 +221,7 @@ const populateFormTwoRadio = (pokemonObj) => {
   labelEl.appendChild(imgEL);
   labelEl.appendChild(paraEL);
 
-  choicesContTwo.appendChild(labelEl);
+  choicesContTwo.appendChild(labelEl); // That
 };
 
 playerOnePokemon.appendChild(choicesContOne);
